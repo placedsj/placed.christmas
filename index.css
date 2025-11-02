@@ -1,0 +1,716 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;500;600;700;800&family=Staatliches&display=swap');
+@import './styles/design-system.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Enhanced Christmas theme colors matching Gemini design */
+    --christmas-cream: 45 100% 96%;
+    --holiday-red: 0 84% 60%;
+    --holiday-green: 120 60% 20%;
+    --deep-forest: 150 80% 15%;
+    --rich-burgundy: 345 65% 25%;
+    --warm-gold: 45 100% 60%;
+    
+    /* Enhanced vibrant color variables */
+    --color-background: #0f172a; /* Dark navy blue background */
+    --color-surface: #1e293b; /* Darker surface for cards */
+    --color-primary: #dc2626; /* Bright Christmas Red */
+    --color-secondary: #22c55e; /* Bright Christmas Green */
+    --color-secondary-muted: #16a34a; /* Medium green */
+    --color-accent-red: #ef4444; /* Vibrant red */
+    --color-accent-green: #16a34a; /* Vibrant green */
+    --color-accent-green-light: #22c55e; /* Light green */
+    --color-accent-gold: #fbbf24; /* Bright gold */
+    --color-accent-blue: #3b82f6; /* Vibrant blue */
+    --color-text-light: #f8fafc; /* Light text for dark backgrounds */
+    --color-text-dark: #0f172a; /* Dark text for light backgrounds */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, var(--color-background) 0%, #1e293b 50%, #0f172a 100%);
+    color: var(--color-text-light);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Festive Typography Classes */
+  .font-festive { 
+    font-family: 'Luckiest Guy', cursive;
+  }
+  .font-sans { 
+    font-family: 'Poppins', sans-serif; 
+  }
+
+  /* Custom Color Classes from Gemini Design */
+  .bg-background { background-color: var(--color-background); }
+  .bg-surface { background-color: var(--color-surface); }
+  .border-surface { border-color: var(--color-surface); }
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-secondary); }
+  .text-accent-red { color: var(--color-accent-red); }
+  .bg-accent-red { background-color: var(--color-accent-red); }
+  .border-accent-red { border-color: var(--color-accent-red); }
+  .text-accent-green-light { color: var(--color-accent-green-light); }
+
+  /* Professional Button Styles from Gemini */
+  .btn-primary {
+    background: var(--color-accent-green);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 14px 0 rgba(22, 101, 52, 0.4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent-green-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 rgba(22, 101, 52, 0.6);
+    color: white;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-accent-red);
+    padding: 1rem 2rem;
+    border: 2px solid var(--color-accent-red);
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-accent-red);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 rgba(220, 38, 38, 0.4);
+  }
+
+  /* Enhanced Form Styles */
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--color-secondary-muted);
+    border-radius: 0.75rem;
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    transition: all 0.3s ease;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-secondary);
+    opacity: 0.8;
+    text-transform: uppercase;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-accent-red);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    background-color: var(--color-background);
+  }
+
+  /* Professional Layout Classes */
+  .container-professional {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-padding {
+    padding: 4rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 6rem 0;
+    }
+    .container-professional {
+      padding: 0 3rem;
+    }
+  }
+
+  /* Christmas Animation Effects */
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes fadeInDown {
+    from { 
+      opacity: 0; 
+      transform: translateY(-30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes slideInLeft {
+    from { 
+      opacity: 0; 
+      transform: translateX(-50px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+
+  @keyframes slideInRight {
+    from { 
+      opacity: 0; 
+      transform: translateX(50px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% { 
+      box-shadow: 0 0 5px var(--color-accent-gold), 0 0 10px var(--color-accent-gold); 
+    }
+    50% { 
+      box-shadow: 0 0 10px var(--color-accent-gold), 0 0 20px var(--color-accent-gold), 0 0 30px var(--color-accent-gold); 
+    }
+  }
+
+  /* Stencil Navigation Button Styles */
+  .stencil-nav-button {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-shadow: 
+      2px 2px 4px rgba(0,0,0,0.8),
+      -2px -2px 4px rgba(0,0,0,0.8),
+      2px -2px 4px rgba(0,0,0,0.8),
+      -2px 2px 4px rgba(0,0,0,0.8);
+    -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+  }
+
+  .stencil-nav-button:hover {
+    color: #fbbf24;
+    transform: scale(1.05);
+    text-shadow: 
+      0 0 10px rgba(251, 191, 36, 0.8),
+      0 0 20px rgba(251, 191, 36, 0.6),
+      2px 2px 4px rgba(0,0,0,0.8),
+      -2px -2px 4px rgba(0,0,0,0.8),
+      2px -2px 4px rgba(0,0,0,0.8),
+      -2px 2px 4px rgba(0,0,0,0.8);
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.4));
+  }
+
+  .stencil-nav-button::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, 
+      transparent 0%, 
+      rgba(220, 38, 38, 0.2) 25%, 
+      rgba(34, 197, 94, 0.2) 50%, 
+      rgba(251, 191, 36, 0.2) 75%, 
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .stencil-nav-button:hover::before {
+    opacity: 1;
+    animation: stencil-glow 2s infinite alternate;
+  }
+
+  @keyframes stencil-glow {
+    0% {
+      background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(220, 38, 38, 0.3) 25%, 
+        rgba(34, 197, 94, 0.3) 50%, 
+        rgba(251, 191, 36, 0.3) 75%, 
+        transparent 100%
+      );
+    }
+    100% {
+      background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(251, 191, 36, 0.4) 25%, 
+        rgba(220, 38, 38, 0.4) 50%, 
+        rgba(34, 197, 94, 0.4) 75%, 
+        transparent 100%
+      );
+    }
+  }
+
+  /* Enhanced Header with Christmas Lights */
+  .bg-festive {
+    background-image: url('https://images.unsplash.com/photo-1542379362-950343b4c973?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-festive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .content-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Christmas Lights Styling */
+  .lights-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0;
+  }
+
+  .light-rope {
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    background-color: #384a50;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .light {
+    position: relative;
+    width: 16px;
+    height: 24px;
+    background-color: #ff0000;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    margin: 0 20px;
+    z-index: 2;
+    box-shadow: 0 0 10px 2px #ff0000;
+    animation: glow 2s infinite alternate;
+  }
+
+  .light::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 2px;
+  }
+
+  .light.green {
+    background-color: #00ff00;
+    box-shadow: 0 0 10px 2px #00ff00;
+    animation-delay: 0.5s;
+  }
+
+  .light.blue {
+    background-color: #008cff;
+    box-shadow: 0 0 10px 2px #008cff;
+    animation-delay: 1s;
+  }
+  
+  .light.yellow {
+    background-color: #ffff00;
+    box-shadow: 0 0 10px 2px #ffff00;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes glow {
+    from {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px 5px currentColor;
+    }
+  }
+  
+  .light.red { color: #ff0000; }
+  .light.green { color: #00ff00; }
+  .light.blue { color: #008cff; }
+  .light.yellow { color: #ffff00; }
+
+  /* Navigation Button Styling */
+  .nav-button {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+
+  .animate-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-snowfall {
+    animation: snowfall linear infinite;
+  }
+
+  /* Delay Classes */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-700 { animation-delay: 0.7s; }
+  .delay-1000 { animation-delay: 1s; }
+
+  /* Christmas Light Border Effect */
+  .christmas-lights-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .christmas-lights-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-red), var(--color-accent-green), var(--color-accent-gold), transparent);
+    animation: light-sweep 3s ease-in-out infinite;
+  }
+
+  @keyframes light-sweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* Enhanced Card Styles */
+  .card-festive {
+    background: linear-gradient(135deg, var(--color-surface) 0%, #334155 100%);
+    border: 2px solid var(--color-accent-red);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text-light);
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+  }
+
+  .card-festive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-red), var(--color-accent-green), var(--color-accent-gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-festive:hover {
+    border-color: var(--color-accent-red);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-festive:hover::before {
+    opacity: 1;
+  }
+
+  /* Background Pattern from Gemini */
+  .bg-gingerbread-pattern {
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2314532d" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  }
+
+  /* Responsive Typography */
+  .heading-hero {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 700;
+    font-family: 'Luckiest Guy', cursive;
+  }
+
+  @media (min-width: 768px) {
+    .heading-hero {
+      font-size: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .heading-hero {
+      font-size: 6rem;
+    }
+  }
+
+  .heading-section {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    font-family: 'Luckiest Guy', cursive;
+  }
+
+  @media (min-width: 768px) {
+    .heading-section {
+      font-size: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .heading-section {
+      font-size: 4rem;
+    }
+  }
+
+  /* Enhanced Consultation Card Style from Gemini */
+  .consultation-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .consultation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Radio Button Styling from Gemini */
+  .form-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-secondary-muted);
+    background-color: var(--color-background);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .form-radio:checked {
+    background-color: var(--color-accent-red);
+    border-color: var(--color-accent-red);
+    box-shadow: inset 0 0 0 4px var(--color-background);
+  }
+
+  .form-radio:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
+  }
+
+  /* Drop shadow utilities */
+  .drop-shadow-lg { 
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.1)); 
+  }
+  
+  .drop-shadow-md { 
+    filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)); 
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent-red);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-green);
+  }
+
+  /* Snowflake Animation */
+  .snowflake {
+    position: absolute;
+    top: -10px;
+    color: #fff;
+    user-select: none;
+    pointer-events: none;
+    animation: snowfall linear infinite;
+    opacity: 0.8;
+    font-size: 1.2em;
+  }
+
+  /* Improved Mobile Navigation */
+  @media (max-width: 768px) {
+    .btn-primary, .btn-secondary {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.875rem;
+    }
+    
+    .form-input {
+      padding: 0.875rem;
+      font-size: 0.875rem;
+    }
+
+    .heading-hero {
+      font-size: 2.5rem;
+    }
+
+    .heading-section {
+      font-size: 2rem;
+    }
+  }
+}
